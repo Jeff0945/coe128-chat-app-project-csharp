@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using LocalChat.Services;
 
 namespace LocalChat
 {
@@ -7,6 +8,7 @@ namespace LocalChat
         public Chats()
         {
             InitializeComponent();
+            Data.Instance = this;
         }
     }
 }
