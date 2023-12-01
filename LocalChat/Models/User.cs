@@ -12,7 +12,7 @@ namespace LocalChat.Models
         public string UserName { get; private set; }
         public string Name { get; private set; }
 
-        public User(string userName, string name, Chats instance)
+        public User(string userName, string name)
         {
             if (!Validate(userName)) return;
             
@@ -20,7 +20,7 @@ namespace LocalChat.Models
             Name = name;
             
             Data.Database.Add(this);
-            instance.recipientsList.Controls.Add(new UserPanel(this));
+            Data.Instance.recipientsList.Controls.Add(new UserPanel(this));
         }
 
         public List<Message> Messages()
