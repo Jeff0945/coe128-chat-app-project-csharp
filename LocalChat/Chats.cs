@@ -8,7 +8,7 @@ namespace LocalChat
         public Chats()
         {
             InitializeComponent();
-            Data.Instance = this;
+            Instance.Gui = this;
         }
     }
 }

@@ -15,11 +15,10 @@ namespace LocalChat.Components.UsersList
             IconChar = IconChar.User;
             IconColor = Color.FromArgb(228, 236, 242);
             IconFont = IconFont.Auto;
-            Location = new Point(6, 16);
+            Location = new Point(18, 16);
             Name = "userListPicture";
             Size = new Size(32, 32);
             SizeMode = PictureBoxSizeMode.CenterImage;
-            TabIndex = 3;
             TabStop = false;
         }
     }
