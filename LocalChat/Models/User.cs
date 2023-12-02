@@ -59,6 +59,8 @@ namespace LocalChat.Models
             return Component;
         }
 
+        #region Private functions
+
         private bool Validate(string userName)
         {
             var exists = Instance.Database
@@ -67,10 +69,12 @@ namespace LocalChat.Models
 
             if (exists)
             {
-                MessageBox.Show($"User name \"{userName}\" already exists.");
+                MessageBox.Show($@"User name ""{userName}"" already exists.");
             }
 
             return !exists;
         }
+
+        #endregion
     }
 }
