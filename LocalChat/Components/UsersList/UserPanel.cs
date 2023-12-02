@@ -19,16 +19,18 @@ namespace LocalChat.Components.UsersList
             Controls.Add(new UserName(user.Name));
             
             SetProperties();
+            SetEvents();
         }
 
         public UserPanel(string name)
         {
             InitializeComponent();
 
-            Name = name;
+            Name = "allExistingUsersInSystem";
             Controls.Add(new UserName(name));
             
             SetProperties();
+            SetEvents();
         }
 
         public void UpdateUserName(string userName)
@@ -64,21 +66,19 @@ namespace LocalChat.Components.UsersList
             Size = new Size(232, 64);
             
             Controls.Add(new UserPicture());
+        }
 
+        private void SetEvents()
+        {
             Click += OnClick;
+            MouseEnter += OnMouseEnter;
+            MouseLeave += OnMouseLeave;
+            
             foreach (Control control in Controls)
             {
                 control.Click += OnClick;
-            }
-        }
-
-        private void OnClick(object sender, EventArgs e)
-        {
-            UnselectSelected();
-
-            if (SelectPanel())
-            {
-                MessageBox.Show(Name);
+                control.MouseEnter += OnMouseEnter;
+                control.MouseLeave += OnMouseLeave;
             }
         }
 
@@ -90,20 +90,67 @@ namespace LocalChat.Components.UsersList
             }
             
             IsSelected = true;
-            Instance.SelectedRecipient = Recipient();
             
             return true;
         }
 
+        private void Unselect()
+        {
+            IsSelected = false;
+            BackColor = Color.Transparent;
+        }
+
         private void UnselectSelected()
         {
-            Parent.Controls
+            var selected = Parent.Controls
                 .OfType<UserPanel>()
                 .Where(panel => panel.IsSelected && panel.Name != Name)
-                .ToList()
-                .ForEach(panel => panel.IsSelected = false);
+                .ToList();
             
+            if (selected.Count == 0)
+            {
+                return;
+            }
+            
+            selected.ForEach(item => item.Unselect());
             Instance.SelectedRecipient = null;
+        }
+        
+        #endregion
+
+        #region Event handlers
+
+        private void OnMouseEnter(object sender, EventArgs e)
+        {
+            if (IsSelected)
+            {
+                return;
+            }
+            
+            BackColor = Color.FromArgb(49, 49, 56);
+        }
+
+        private void OnMouseLeave(object sender, EventArgs e)
+        {
+            if (IsSelected)
+            {
+                return;
+            }
+
+            BackColor = Color.Transparent;
+        }
+
+        private void OnClick(object sender, EventArgs e)
+        {
+            UnselectSelected();
+
+            if (!SelectPanel())
+            {
+                return;
+            }
+            
+            Instance.SelectedRecipient = Recipient();
+            BackColor = Color.FromArgb(65, 66, 85);
         }
 
         #endregion
