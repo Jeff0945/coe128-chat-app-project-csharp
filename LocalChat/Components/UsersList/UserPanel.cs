@@ -47,6 +47,8 @@ namespace LocalChat.Components.UsersList
             nameComponent.Text = name;
         }
 
+        #region Private functions
+
         private void SetProperties()
         {
             Location = new Point(15, 0);
@@ -92,5 +94,7 @@ namespace LocalChat.Components.UsersList
                 .ToList()
                 .ForEach(panel => panel.IsSelected = false);
         }
+
+        #endregion
     }
 }

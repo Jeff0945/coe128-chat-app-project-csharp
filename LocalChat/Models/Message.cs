@@ -32,6 +32,8 @@ namespace LocalChat.Models
                 .First(user => user.UserName == UserName);
         }
 
+        #region Private functions
+
         private bool Validate(string userName)
         {
             bool exists = Instance.Database
@@ -40,7 +42,7 @@ namespace LocalChat.Models
 
             if (!exists)
             {
-                MessageBox.Show($"User \"{userName}\" does not exist.");
+                MessageBox.Show($@"User ""{userName}"" does not exist.");
             }
 
             return exists;
@@ -57,5 +59,7 @@ namespace LocalChat.Models
 
             return messages.Last().Id + 1;
         }
+
+        #endregion
     }
 }
