@@ -84,6 +84,7 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="Services\Collection.cs" />
         <Compile Include="Services\Data.cs" />
+        <Compile Include="Services\GuiFunctions.cs" />
         <EmbeddedResource Include="Chats.resx">
           <DependentUpon>Chats.cs</DependentUpon>
         </EmbeddedResource>

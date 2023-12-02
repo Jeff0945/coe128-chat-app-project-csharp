@@ -13,7 +13,10 @@ namespace LocalChat.Models
 
         public Message(string userName, string message)
         {
-            if (!Validate(userName)) return;
+            if (!Validate(userName))
+            {
+                return;
+            }
             
             Id = GenerateId();
             UserName = userName;
@@ -42,7 +45,10 @@ namespace LocalChat.Models
                 .Users()
                 .Any(user => user.UserName == userName);
 
-            if (!exists) MessageBox.Show("User does not exist.");
+            if (!exists)
+            {
+                MessageBox.Show("User does not exist.");
+            }
 
             return exists;
         }
@@ -51,7 +57,10 @@ namespace LocalChat.Models
         {
             var messages = Data.Database.Messages().ToList();
 
-            if (!messages.Any()) return 1;
+            if (!messages.Any())
+            {
+                return 1;
+            }
 
             return messages.Last().Id + 1;
         }
