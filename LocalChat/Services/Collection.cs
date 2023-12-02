@@ -16,5 +16,11 @@ namespace LocalChat.Services
         {
             return this.OfType<Message>();
         }
+
+        public void Add(User item)
+        {
+            base.Add(item);
+            Gui.AppendUser(item.CreateComponent());
+        }
     }
 }

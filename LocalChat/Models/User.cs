@@ -11,6 +11,7 @@ namespace LocalChat.Models
     {
         public string UserName { get; private set; }
         public string Name { get; private set; }
+        public UserPanel Component { get; private set; }
 
         public User(string userName, string name)
         {
@@ -22,13 +23,12 @@ namespace LocalChat.Models
             UserName = userName;
             Name = name;
             
-            Data.Database.Add(this);
-            Data.Instance.recipientsList.Controls.Add(new UserPanel(this));
+            Instance.Database.Add(this);
         }
 
         public List<Message> Messages()
         {
-            return Data.Database.Messages()
+            return Instance.Database.Messages()
                 .Where(message => message.UserName == UserName)
                 .ToList();
         }
@@ -40,26 +40,25 @@ namespace LocalChat.Models
                 return;
             }
 
-            if (userName != null) UserName = userName;
-            if (name != null) Name = name;
-            
-            GuiFunctions.ReloadUsers();
+            UserName = userName ?? UserName;
+            Name = name ?? Name;
         }
 
-        public void PlacePanel()
+        public UserPanel CreateComponent()
         {
-            Data.Instance.recipientsList.Controls.Add(new UserPanel(this));
+            Component = new UserPanel(this);
+            return Component;
         }
 
         private bool Validate(string userName)
         {
-            var exists = Data.Database
+            var exists = Instance.Database
                 .Users()
                 .Any(user => user.UserName == userName && user != this);
 
             if (exists)
             {
-                MessageBox.Show($"{userName} already exists.");
+                MessageBox.Show($"User name \"{userName}\" already exists.");
             }
 
             return !exists;
