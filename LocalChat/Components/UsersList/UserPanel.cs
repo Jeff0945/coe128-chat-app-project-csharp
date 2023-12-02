@@ -30,6 +30,23 @@ namespace LocalChat.Components.UsersList
             SetProperties();
         }
 
+        public void UpdateUserName(string userName)
+        {
+            Name = userName;
+        }
+
+        public void UpdateName(string name)
+        {
+            var nameComponent = Controls.OfType<UserName>().FirstOrDefault();
+
+            if (nameComponent == null)
+            {
+                return;
+            }
+
+            nameComponent.Text = name;
+        }
+
         private void SetProperties()
         {
             Location = new Point(15, 0);
