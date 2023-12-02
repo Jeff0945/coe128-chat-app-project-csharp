@@ -31,6 +31,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Chats));
             this.recipientsList = new System.Windows.Forms.FlowLayoutPanel();
+            this.allPanel = new System.Windows.Forms.Panel();
+            this.allName = new System.Windows.Forms.Label();
+            this.allPicture = new FontAwesome.Sharp.IconPictureBox();
             this.messagesPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.senderPanel = new System.Windows.Forms.Panel();
             this.senderMessage = new System.Windows.Forms.Label();
@@ -46,10 +49,9 @@
             this.userPicture = new FontAwesome.Sharp.IconPictureBox();
             this.messageInput = new System.Windows.Forms.TextBox();
             this.sendButton = new FontAwesome.Sharp.IconButton();
-            this.allPanel = new System.Windows.Forms.Panel();
-            this.allPicture = new FontAwesome.Sharp.IconPictureBox();
-            this.allName = new System.Windows.Forms.Label();
             this.recipientsList.SuspendLayout();
+            this.allPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allPicture)).BeginInit();
             this.messagesPanel.SuspendLayout();
             this.senderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.senderPicture)).BeginInit();
@@ -57,8 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientPicture)).BeginInit();
             this.userInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPicture)).BeginInit();
-            this.allPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.allPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // recipientsList
@@ -68,6 +68,43 @@
             this.recipientsList.Name = "recipientsList";
             this.recipientsList.Size = new System.Drawing.Size(232, 540);
             this.recipientsList.TabIndex = 0;
+            // 
+            // allPanel
+            // 
+            this.allPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.allPanel.Controls.Add(this.allName);
+            this.allPanel.Controls.Add(this.allPicture);
+            this.allPanel.Location = new System.Drawing.Point(0, 0);
+            this.allPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.allPanel.Name = "allPanel";
+            this.allPanel.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.allPanel.Size = new System.Drawing.Size(232, 64);
+            this.allPanel.TabIndex = 0;
+            // 
+            // allName
+            // 
+            this.allName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.allName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.allName.Location = new System.Drawing.Point(56, 16);
+            this.allName.Name = "allName";
+            this.allName.Size = new System.Drawing.Size(158, 32);
+            this.allName.TabIndex = 3;
+            this.allName.Text = "Everyone";
+            this.allName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // allPicture
+            // 
+            this.allPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.allPicture.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.allPicture.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.allPicture.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.allPicture.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.allPicture.Location = new System.Drawing.Point(18, 16);
+            this.allPicture.Name = "allPicture";
+            this.allPicture.Size = new System.Drawing.Size(32, 32);
+            this.allPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.allPicture.TabIndex = 3;
+            this.allPicture.TabStop = false;
             // 
             // messagesPanel
             // 
@@ -281,43 +318,6 @@
             this.sendButton.TabIndex = 3;
             this.sendButton.UseVisualStyleBackColor = false;
             // 
-            // allPanel
-            // 
-            this.allPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.allPanel.Controls.Add(this.allName);
-            this.allPanel.Controls.Add(this.allPicture);
-            this.allPanel.Location = new System.Drawing.Point(15, 0);
-            this.allPanel.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
-            this.allPanel.Name = "allPanel";
-            this.allPanel.Size = new System.Drawing.Size(202, 64);
-            this.allPanel.TabIndex = 0;
-            // 
-            // allPicture
-            // 
-            this.allPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.allPicture.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.allPicture.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.allPicture.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.allPicture.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.allPicture.Location = new System.Drawing.Point(6, 16);
-            this.allPicture.Name = "allPicture";
-            this.allPicture.Size = new System.Drawing.Size(32, 32);
-            this.allPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.allPicture.TabIndex = 3;
-            this.allPicture.TabStop = false;
-            // 
-            // allName
-            // 
-            this.allName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.allName.Location = new System.Drawing.Point(44, 16);
-            this.allName.Margin = new System.Windows.Forms.Padding(3, 0, 21, 0);
-            this.allName.Name = "allName";
-            this.allName.Size = new System.Drawing.Size(152, 32);
-            this.allName.TabIndex = 3;
-            this.allName.Text = "Everyone";
-            this.allName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Chats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -332,6 +332,8 @@
             this.Name = "Chats";
             this.Text = "LocalChat";
             this.recipientsList.ResumeLayout(false);
+            this.allPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.allPicture)).EndInit();
             this.messagesPanel.ResumeLayout(false);
             this.messagesPanel.PerformLayout();
             this.senderPanel.ResumeLayout(false);
@@ -342,8 +344,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientPicture)).EndInit();
             this.userInfoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userPicture)).EndInit();
-            this.allPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.allPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }

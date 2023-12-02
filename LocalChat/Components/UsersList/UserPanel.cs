@@ -58,10 +58,10 @@ namespace LocalChat.Components.UsersList
 
         private void SetProperties()
         {
-            Location = new Point(15, 0);
-            Margin = new Padding(15, 0, 15, 0);
-            Size = new Size(202, 64);
-            TabIndex = 0;
+            Location = new Point(0, 0);
+            Margin = new Padding(0);
+            Padding = new Padding(15, 0, 15, 0);
+            Size = new Size(232, 64);
             
             Controls.Add(new UserPicture());
 
