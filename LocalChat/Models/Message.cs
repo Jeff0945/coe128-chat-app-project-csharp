@@ -22,32 +22,25 @@ namespace LocalChat.Models
             UserName = userName;
             Text = message;
 
-            Data.Database.Add(this);
+            Instance.Database.Add(this);
         }
 
         public User User()
         {
-            return Data.Database
+            return Instance.Database
                 .Users()
                 .First(user => user.UserName == UserName);
         }
 
-        public Message Update(string message)
-        {
-            Text = message;
-            
-            return this;
-        }
-
         private bool Validate(string userName)
         {
-            bool exists = Data.Database
+            bool exists = Instance.Database
                 .Users()
                 .Any(user => user.UserName == userName);
 
             if (!exists)
             {
-                MessageBox.Show("User does not exist.");
+                MessageBox.Show($"User \"{userName}\" does not exist.");
             }
 
             return exists;
@@ -55,7 +48,7 @@ namespace LocalChat.Models
 
         private int GenerateId()
         {
-            var messages = Data.Database.Messages().ToList();
+            var messages = Instance.Database.Messages().ToList();
 
             if (!messages.Any())
             {
