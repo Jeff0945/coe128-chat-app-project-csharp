@@ -40,8 +40,17 @@ namespace LocalChat.Models
                 return;
             }
 
-            UserName = userName ?? UserName;
-            Name = name ?? Name;
+            if (userName != null)
+            {
+                UserName = userName;
+                Component.UpdateUserName(userName);
+            }
+
+            if (name != null)
+            {
+                Name = name;
+                Component.UpdateName(name);
+            }
         }
 
         public UserPanel CreateComponent()
