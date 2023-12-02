@@ -14,7 +14,10 @@ namespace LocalChat.Models
 
         public User(string userName, string name)
         {
-            if (!Validate(userName)) return;
+            if (!Validate(userName))
+            {
+                return;
+            }
             
             UserName = userName;
             Name = name;
@@ -30,14 +33,22 @@ namespace LocalChat.Models
                 .ToList();
         }
 
-        public User Update(string userName = null, string name = null)
+        public void Update(string userName = null, string name = null)
         {
-            if (!Validate(userName)) return this;
+            if (!Validate(userName))
+            {
+                return;
+            }
 
             if (userName != null) UserName = userName;
             if (name != null) Name = name;
+            
+            GuiFunctions.ReloadUsers();
+        }
 
-            return this;
+        public void PlacePanel()
+        {
+            Data.Instance.recipientsList.Controls.Add(new UserPanel(this));
         }
 
         private bool Validate(string userName)
@@ -46,7 +57,10 @@ namespace LocalChat.Models
                 .Users()
                 .Any(user => user.UserName == userName && user != this);
 
-            if (exists) MessageBox.Show($"{userName} already exists.");
+            if (exists)
+            {
+                MessageBox.Show($"{userName} already exists.");
+            }
 
             return !exists;
         }
