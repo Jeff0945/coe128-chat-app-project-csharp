@@ -3,12 +3,13 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using LocalChat.Models;
+using LocalChat.Services;
 
 namespace LocalChat.Components.UsersList
 {
     public partial class UserPanel : Panel
     {
-        public bool IsSelected { get; set; }
+        private bool IsSelected { get; set; }
         
         public UserPanel(User user)
         {
@@ -49,6 +50,12 @@ namespace LocalChat.Components.UsersList
 
         #region Private functions
 
+        private User Recipient()
+        {
+            return Instance.Database.Users()
+                .FirstOrDefault(user => user.UserName == Name);
+        }
+
         private void SetProperties()
         {
             Location = new Point(15, 0);
@@ -83,6 +90,8 @@ namespace LocalChat.Components.UsersList
             }
             
             IsSelected = true;
+            Instance.SelectedRecipient = Recipient();
+            
             return true;
         }
 
@@ -93,6 +102,8 @@ namespace LocalChat.Components.UsersList
                 .Where(panel => panel.IsSelected && panel.Name != Name)
                 .ToList()
                 .ForEach(panel => panel.IsSelected = false);
+            
+            Instance.SelectedRecipient = null;
         }
 
         #endregion
