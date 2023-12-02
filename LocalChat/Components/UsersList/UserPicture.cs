@@ -10,8 +10,6 @@ namespace LocalChat.Components.UsersList
         {
             InitializeComponent();
             
-            BackColor = Color.FromArgb(45, 45, 48);
-            ForeColor = Color.FromArgb(228, 236, 242);
             IconChar = IconChar.User;
             IconColor = Color.FromArgb(228, 236, 242);
             IconFont = IconFont.Auto;
