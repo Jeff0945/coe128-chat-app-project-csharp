@@ -8,6 +8,6 @@ namespace SelfLink.Services
         public static User CurrentUser = null;
         public static User SelectedRecipient = null;
             
-        internal static Chats Gui = null;
+        internal static Interface Gui = null;
     }
 }
