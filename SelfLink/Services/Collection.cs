@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using LocalChat.Interfaces;
-using LocalChat.Models;
+using SelfLink.Interfaces;
+using SelfLink.Models;
 
-namespace LocalChat.Services
+namespace SelfLink.Services
 {
     public class Collection : List<ICollection>
     {

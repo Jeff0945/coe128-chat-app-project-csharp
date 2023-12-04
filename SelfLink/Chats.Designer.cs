@@ -1,4 +1,4 @@
-﻿namespace LocalChat
+﻿namespace SelfLink
 {
     partial class Chats
     {
@@ -286,7 +286,7 @@
             this.Controls.Add(this.messagesPanel);
             this.Controls.Add(this.recipientsList);
             this.Name = "Chats";
-            this.Text = "LocalChat";
+            this.Text = "SelfLink";
             this.messagesPanel.ResumeLayout(false);
             this.messagesPanel.PerformLayout();
             this.senderPanel.ResumeLayout(false);

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using LocalChat.Components.UsersList;
-using LocalChat.Interfaces;
-using LocalChat.Services;
+using SelfLink.Components.UsersList;
+using SelfLink.Interfaces;
+using SelfLink.Services;
 
-namespace LocalChat.Models
+namespace SelfLink.Models
 {
     public class User : ICollection
     {

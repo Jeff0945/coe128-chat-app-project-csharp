@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
-using LocalChat.Services;
-using LocalChat.Interfaces;
+using SelfLink.Interfaces;
+using SelfLink.Services;
 
-namespace LocalChat.Models
+namespace SelfLink.Models
 {
     public class Message : ICollection
     {

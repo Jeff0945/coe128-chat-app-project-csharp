@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace LocalChat.Components.UsersList
+namespace SelfLink.Components.UsersList
 {
     public sealed partial class UserName : Label
     {

@@ -1,6 +1,6 @@
-﻿using LocalChat.Models;
+﻿using SelfLink.Models;
 
-namespace LocalChat.Services
+namespace SelfLink.Services
 {
     public static class Instance
     {

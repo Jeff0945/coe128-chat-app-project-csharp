@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
-using LocalChat.Services;
+using SelfLink.Services;
 
-namespace LocalChat
+namespace SelfLink
 {
     public partial class Chats : Form
     {
@@ -9,6 +9,8 @@ namespace LocalChat
         {
             InitializeComponent();
             Instance.Gui = this;
+            
+            Gui.InitializeAllChat();
         }
     }
 }
