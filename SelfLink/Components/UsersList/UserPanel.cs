@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Media.Animation;
+using SelfLink.Constants;
 using SelfLink.Models;
 using SelfLink.Services;
 
@@ -156,7 +156,7 @@ namespace SelfLink.Components.UsersList
             }
             
             Instance.SelectedRecipient = Recipient();
-            BackColor = Color.FromArgb(65, 66, 85);
+            BackColor = AppColors.Secondary;
         }
 
         #endregion
