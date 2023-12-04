@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocalChat.Properties
+namespace SelfLink.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -45,7 +45,7 @@ namespace LocalChat.Properties
                 if ((resourceMan == null))
                 {
                     global::System.Resources.ResourceManager temp =
-                        new global::System.Resources.ResourceManager("LocalChat.Properties.Resources",
+                        new global::System.Resources.ResourceManager("SelfLink.Properties.Resources",
                             typeof(Resources).Assembly);
                     resourceMan = temp;
                 }

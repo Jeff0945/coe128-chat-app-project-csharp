@@ -2,10 +2,11 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using LocalChat.Models;
-using LocalChat.Services;
+using System.Windows.Media.Animation;
+using SelfLink.Models;
+using SelfLink.Services;
 
-namespace LocalChat.Components.UsersList
+namespace SelfLink.Components.UsersList
 {
     public partial class UserPanel : Panel
     {
@@ -48,6 +49,11 @@ namespace LocalChat.Components.UsersList
             }
 
             nameComponent.Text = name;
+        }
+
+        public void PerformClick()
+        {
+            OnClick(this, EventArgs.Empty);
         }
 
         #region Private functions

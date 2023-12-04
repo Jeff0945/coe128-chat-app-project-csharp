@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace LocalChat.Components.UsersList
+namespace SelfLink.Components.UsersList
 {
-    partial class UserPicture
+    sealed partial class UserPanel
     {
         /// <summary>
         /// Required designer variable.

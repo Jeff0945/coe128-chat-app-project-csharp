@@ -6,8 +6,8 @@
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
         <ProjectGuid>{1A17C7F3-6769-4017-A5C8-9F26AE19A7CD}</ProjectGuid>
         <OutputType>WinExe</OutputType>
-        <RootNamespace>LocalChat</RootNamespace>
-        <AssemblyName>LocalChat</AssemblyName>
+        <RootNamespace>SelfLink</RootNamespace>
+        <AssemblyName>SelfLink</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -112,7 +112,7 @@
         <None Include="App.config"/>
     </ItemGroup>
     <ItemGroup>
-      <Content Include="LocalChat.csproj.DotSettings" />
+      <Content Include="SelfLink.csproj.DotSettings" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace LocalChat.Interfaces
+﻿namespace SelfLink.Interfaces
 {
     public interface ICollection { }
 }

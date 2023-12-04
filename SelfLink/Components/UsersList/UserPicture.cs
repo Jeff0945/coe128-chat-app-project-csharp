@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 
-namespace LocalChat.Components.UsersList
+namespace SelfLink.Components.UsersList
 {
     public sealed partial class UserPicture : IconPictureBox
     {
