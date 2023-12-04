@@ -1,4 +1,6 @@
-﻿namespace SelfLink
+﻿using SelfLink.Constants;
+
+namespace SelfLink
 {
     partial class Interface
     {
@@ -91,7 +93,7 @@
             // senderMessage
             // 
             this.senderMessage.AutoSize = true;
-            this.senderMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(66)))), ((int)(((byte)(85)))));
+            this.senderMessage.BackColor = AppColors.Secondary;
             this.senderMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.senderMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
             this.senderMessage.Location = new System.Drawing.Point(56, 38);
@@ -151,7 +153,7 @@
             // clientMessage
             // 
             this.clientMessage.AutoSize = true;
-            this.clientMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(66)))), ((int)(((byte)(85)))));
+            this.clientMessage.BackColor = AppColors.Secondary;
             this.clientMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
             this.clientMessage.Location = new System.Drawing.Point(3, 38);
@@ -260,7 +262,7 @@
             // 
             // sendButton
             // 
-            this.sendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(137)))), ((int)(((byte)(255)))));
+            this.sendButton.BackColor = AppColors.Accent;
             this.sendButton.FlatAppearance.BorderSize = 0;
             this.sendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
@@ -278,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.BackColor = AppColors.Primary;
             this.ClientSize = new System.Drawing.Size(1062, 673);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.messageInput);
