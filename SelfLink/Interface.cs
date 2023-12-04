@@ -3,9 +3,9 @@ using SelfLink.Services;
 
 namespace SelfLink
 {
-    public partial class Chats : Form
+    public partial class Interface : Form
     {
-        public Chats()
+        public Interface()
         {
             InitializeComponent();
             Instance.Gui = this;

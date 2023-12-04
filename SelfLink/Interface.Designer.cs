@@ -1,6 +1,6 @@
 ﻿namespace SelfLink
 {
-    partial class Chats
+    partial class Interface
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Chats));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Interface));
             this.recipientsList = new System.Windows.Forms.FlowLayoutPanel();
             this.messagesPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.senderPanel = new System.Windows.Forms.Panel();
@@ -285,7 +285,7 @@
             this.Controls.Add(this.userInfoPanel);
             this.Controls.Add(this.messagesPanel);
             this.Controls.Add(this.recipientsList);
-            this.Name = "Chats";
+            this.Name = "Interface";
             this.Text = "SelfLink";
             this.messagesPanel.ResumeLayout(false);
             this.messagesPanel.PerformLayout();

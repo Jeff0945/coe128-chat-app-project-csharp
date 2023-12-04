@@ -13,7 +13,7 @@ namespace SelfLink
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Chats());
+            Application.Run(new Interface());
         }
     }
 }
