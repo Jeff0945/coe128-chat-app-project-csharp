@@ -7,7 +7,6 @@ namespace SelfLink.Models
 {
     public class Message : ICollection
     {
-        public int Id { get; }
         public string UserName { get; }
         public string Text { get; private set; }
 
@@ -18,7 +17,6 @@ namespace SelfLink.Models
                 return;
             }
             
-            Id = GenerateId();
             UserName = userName;
             Text = message;
 
@@ -46,18 +44,6 @@ namespace SelfLink.Models
             }
 
             return exists;
-        }
-
-        private int GenerateId()
-        {
-            var messages = Instance.Database.Messages().ToList();
-
-            if (!messages.Any())
-            {
-                return 1;
-            }
-
-            return messages.Last().Id + 1;
         }
 
         #endregion

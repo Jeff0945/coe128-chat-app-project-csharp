@@ -23,42 +23,9 @@ namespace SelfLink.Components.UsersList
             SetEvents();
         }
 
-        public UserPanel(string name)
-        {
-            InitializeComponent();
-
-            Name = "allExistingUsersInSystem";
-            Controls.Add(new UserName(name));
-            
-            SetProperties();
-            SetEvents();
-        }
-
-        public void UpdateUserName(string userName)
-        {
-            Name = userName;
-        }
-
-        public void UpdateName(string name)
-        {
-            var nameComponent = Controls.OfType<UserName>().FirstOrDefault();
-
-            if (nameComponent == null)
-            {
-                return;
-            }
-
-            nameComponent.Text = name;
-        }
-
-        public void PerformClick()
-        {
-            OnClick(this, EventArgs.Empty);
-        }
-
         #region Private functions
 
-        private User Recipient()
+        private User GetRecipient()
         {
             return Instance.Database.Users()
                 .FirstOrDefault(user => user.UserName == Name);
@@ -76,13 +43,13 @@ namespace SelfLink.Components.UsersList
 
         private void SetEvents()
         {
-            Click += OnClick;
+            Click += HandleUserSelection;
             MouseEnter += OnMouseEnter;
             MouseLeave += OnMouseLeave;
             
             foreach (Control control in Controls)
             {
-                control.Click += OnClick;
+                control.Click += HandleUserSelection;
                 control.MouseEnter += OnMouseEnter;
                 control.MouseLeave += OnMouseLeave;
             }
@@ -96,13 +63,13 @@ namespace SelfLink.Components.UsersList
             }
             
             IsSelected = true;
-            
             return true;
         }
 
         private void Unselect()
         {
             IsSelected = false;
+            GetRecipient().IsReceiver = false;
             BackColor = Color.Transparent;
         }
 
@@ -119,7 +86,6 @@ namespace SelfLink.Components.UsersList
             }
             
             selected.ForEach(item => item.Unselect());
-            Instance.SelectedRecipient = null;
         }
         
         #endregion
@@ -146,7 +112,7 @@ namespace SelfLink.Components.UsersList
             BackColor = Color.Transparent;
         }
 
-        private void OnClick(object sender, EventArgs e)
+        private void HandleUserSelection(object sender, EventArgs e)
         {
             UnselectSelected();
 
@@ -155,7 +121,7 @@ namespace SelfLink.Components.UsersList
                 return;
             }
             
-            Instance.SelectedRecipient = Recipient();
+            GetRecipient().IsReceiver = true;
             BackColor = AppColors.Secondary;
         }
 

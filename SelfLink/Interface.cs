@@ -9,8 +9,6 @@ namespace SelfLink
         {
             InitializeComponent();
             Instance.Gui = this;
-            
-            Gui.InitializeAllChat();
         }
     }
 }

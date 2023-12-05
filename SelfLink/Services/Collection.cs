@@ -16,6 +16,16 @@ namespace SelfLink.Services
         {
             return this.OfType<Message>();
         }
+        
+        public User Sender()
+        {
+            return Users().FirstOrDefault(user => user.IsSender);
+        }
+
+        public User Receiver()
+        {
+            return Users().FirstOrDefault(user => user.IsReceiver);
+        }
 
         public void Add(User item)
         {
