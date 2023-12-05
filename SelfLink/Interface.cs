@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using SelfLink.Services;
 
 namespace SelfLink
@@ -9,6 +10,9 @@ namespace SelfLink
         {
             InitializeComponent();
             Instance.Gui = this;
+            
+            Gui.InitializeUser();
+            Gui.DisplayUserInfo();
         }
     }
 }
