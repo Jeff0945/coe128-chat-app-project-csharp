@@ -25,7 +25,7 @@ namespace SelfLink.Models
             UserName = userName;
             Name = name;
             IsSender = isSender;
-            
+
             Instance.Database.Add(this);
         }
 

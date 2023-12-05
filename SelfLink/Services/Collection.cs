@@ -30,7 +30,11 @@ namespace SelfLink.Services
         public void Add(User item)
         {
             base.Add(item);
-            Gui.AppendUser(item.CreateComponent());
+
+            if (!item.IsSender)
+            {
+                Gui.AppendUser(item.CreateComponent());
+            }
         }
     }
 }

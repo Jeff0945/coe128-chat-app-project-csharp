@@ -93,7 +93,7 @@ namespace SelfLink
             // senderMessage
             // 
             this.senderMessage.AutoSize = true;
-            this.senderMessage.BackColor = AppColors.Secondary;
+            this.senderMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(60)))), ((int)(((byte)(112)))));
             this.senderMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.senderMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
             this.senderMessage.Location = new System.Drawing.Point(56, 38);
@@ -153,7 +153,7 @@ namespace SelfLink
             // clientMessage
             // 
             this.clientMessage.AutoSize = true;
-            this.clientMessage.BackColor = AppColors.Secondary;
+            this.clientMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(60)))), ((int)(((byte)(112)))));
             this.clientMessage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
             this.clientMessage.Location = new System.Drawing.Point(3, 38);
@@ -258,11 +258,10 @@ namespace SelfLink
             this.messageInput.Name = "messageInput";
             this.messageInput.Size = new System.Drawing.Size(746, 48);
             this.messageInput.TabIndex = 2;
-            this.messageInput.Text = "Test Text";
             // 
             // sendButton
             // 
-            this.sendButton.BackColor = AppColors.Accent;
+            this.sendButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(102)))), ((int)(((byte)(159)))));
             this.sendButton.FlatAppearance.BorderSize = 0;
             this.sendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
@@ -276,18 +275,22 @@ namespace SelfLink
             this.sendButton.TabIndex = 3;
             this.sendButton.UseVisualStyleBackColor = false;
             // 
-            // Chats
+            // Interface
             // 
+            this.AcceptButton = this.sendButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = AppColors.Primary;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1062, 673);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.messageInput);
             this.Controls.Add(this.userInfoPanel);
             this.Controls.Add(this.messagesPanel);
             this.Controls.Add(this.recipientsList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Interface";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SelfLink";
             this.messagesPanel.ResumeLayout(false);
             this.messagesPanel.PerformLayout();
