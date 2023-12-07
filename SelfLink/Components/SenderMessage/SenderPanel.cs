@@ -11,7 +11,7 @@ namespace SelfLink.Components.SenderMessage
             AutoSize = true;
             BackColor = Color.Transparent;
             Location = new Point(15, 15);
-            Margin = new Padding(15, 15, 30, 3);
+            Margin = new Padding(15, 15, 0, 3);
             MaximumSize = new Size(735, 0);
             MinimumSize = new Size(735, 91);
             Name = $"{message.SenderUserName}-panel";

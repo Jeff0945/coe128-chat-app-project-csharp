@@ -36,5 +36,20 @@ namespace SelfLink.Services
                 Gui.AppendUser(item.CreateComponent());
             }
         }
+
+        public void Add(Message item)
+        {
+            base.Add(item);
+
+            if (item.Sender().UserName == Receiver().UserName)
+            {
+                Gui.AddMessage(item);
+            }
+
+            if (item.Receiver().UserName == Receiver().UserName)
+            {
+                Gui.AddMessage(item);
+            }
+        }
     }
 }
