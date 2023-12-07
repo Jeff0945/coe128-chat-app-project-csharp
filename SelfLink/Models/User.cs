@@ -29,13 +29,6 @@ namespace SelfLink.Models
             Instance.Database.Add(this);
         }
 
-        public List<Message> Messages()
-        {
-            return Instance.Database.Messages()
-                .Where(message => message.UserName == UserName)
-                .ToList();
-        }
-
         public UserPanel CreateComponent()
         {
             Component = new UserPanel(this);

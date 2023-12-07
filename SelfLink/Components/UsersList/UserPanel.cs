@@ -123,6 +123,7 @@ namespace SelfLink.Components.UsersList
             
             GetRecipient().IsReceiver = true;
             BackColor = AppColors.Secondary;
+            Gui.DisplayMessages(GetRecipient());
         }
 
         #endregion

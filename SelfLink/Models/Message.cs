@@ -7,27 +7,35 @@ namespace SelfLink.Models
 {
     public class Message : ICollection
     {
-        public string UserName { get; }
+        public string SenderUserName { get; }
+        public string ReceiverUserName { get; }
         public string Text { get; private set; }
 
-        public Message(string userName, string message)
+        public Message(string senderUserName, string receiverUserName, string message)
         {
-            if (!Validate(userName))
+            if (!Validate(receiverUserName))
             {
                 return;
             }
-            
-            UserName = userName;
+
+            SenderUserName = senderUserName;
+            ReceiverUserName = receiverUserName;
             Text = message;
 
             Instance.Database.Add(this);
         }
 
-        public User User()
+        public User Sender()
+        {
+            return Instance.Database.Users()
+                .First(user => user.UserName == SenderUserName);
+        }
+
+        public User Receiver()
         {
             return Instance.Database
                 .Users()
-                .First(user => user.UserName == UserName);
+                .First(user => user.UserName == ReceiverUserName);
         }
 
         #region Private functions
