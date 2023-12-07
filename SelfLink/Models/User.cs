@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Forms;
 using SelfLink.Components.UsersList;
+using SelfLink.Database;
 using SelfLink.Interfaces;
-using SelfLink.Services;
 
 namespace SelfLink.Models
 {
