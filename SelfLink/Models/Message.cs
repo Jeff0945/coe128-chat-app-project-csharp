@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
+using SelfLink.Database;
 using SelfLink.Interfaces;
-using SelfLink.Services;
 
 namespace SelfLink.Models
 {

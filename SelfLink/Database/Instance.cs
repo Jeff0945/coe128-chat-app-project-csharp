@@ -1,4 +1,6 @@
-﻿namespace SelfLink.Services
+﻿using SelfLink.Services;
+
+namespace SelfLink.Database
 {
     public static class Instance
     {

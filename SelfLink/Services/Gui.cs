@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using SelfLink.Components.ClientMessage;
 using SelfLink.Components.SenderMessage;
 using SelfLink.Components.UsersList;
+using SelfLink.Database;
 using SelfLink.Models;
 using Message = SelfLink.Models.Message;
 

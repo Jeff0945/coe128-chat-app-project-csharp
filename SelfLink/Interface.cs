@@ -1,5 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using SelfLink.Database;
 using SelfLink.Services;
 
 namespace SelfLink
