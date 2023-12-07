@@ -10,8 +10,8 @@ namespace SelfLink.Components.ClientMessage
         {
             AutoSize = true;
             BackColor = Color.Transparent;
-            Location = new Point(50, 112);
-            Margin = new Padding(50, 3, 15, 15);
+            Location = new Point(30, 112);
+            Margin = new Padding(30, 3, 0, 15);
             MaximumSize = new Size(735, 0);
             MinimumSize = new Size(735, 91);
             Name = $"{message.SenderUserName}-panel";
