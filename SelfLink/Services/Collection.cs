@@ -17,7 +17,7 @@ namespace SelfLink.Services
             return this.OfType<Message>();
         }
         
-        public User Sender()
+        public User Client()
         {
             return Users().FirstOrDefault(user => user.IsSender);
         }

@@ -53,7 +53,56 @@
         <Reference Include="WindowsBase" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Components\ClientMessage\ClientMessage.cs">
+          <SubType>Component</SubType>
+        </Compile>
+        <Compile Include="Components\ClientMessage\ClientMessage.Designer.cs">
+          <DependentUpon>ClientMessage.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Components\ClientMessage\ClientName.cs">
+          <SubType>Component</SubType>
+        </Compile>
+        <Compile Include="Components\ClientMessage\ClientName.Designer.cs">
+          <DependentUpon>ClientName.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Components\ClientMessage\ClientPanel.cs">
+          <SubType>Component</SubType>
+        </Compile>
+        <Compile Include="Components\ClientMessage\ClientPanel.Designer.cs">
+          <DependentUpon>ClientPanel.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Components\ClientMessage\ClientPicture.cs">
+          <SubType>Component</SubType>
+        </Compile>
+        <Compile Include="Components\ClientMessage\ClientPicture.Designer.cs">
+          <DependentUpon>ClientPicture.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Components\SenderMessage\SenderMessage.cs">
+          <SubType>Component</SubType>
+        </Compile>
+        <Compile Include="Components\SenderMessage\SenderMessage.Designer.cs">
+          <DependentUpon>SenderMessage.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Components\SenderMessage\SenderName.cs">
+          <SubType>Component</SubType>
+        </Compile>
+        <Compile Include="Components\SenderMessage\SenderName.Designer.cs">
+          <DependentUpon>SenderName.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Components\SenderMessage\SenderPanel.cs">
+          <SubType>Component</SubType>
+        </Compile>
+        <Compile Include="Components\SenderMessage\SenderPanel.Designer.cs">
+          <DependentUpon>SenderPanel.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Components\SenderMessage\SenderPicture.cs">
+          <SubType>Component</SubType>
+        </Compile>
+        <Compile Include="Components\SenderMessage\SenderPicture.Designer.cs">
+          <DependentUpon>SenderPicture.cs</DependentUpon>
+        </Compile>
         <Compile Include="Constants\AppColors.cs" />
+        <Compile Include="Constants\SizeConstants.cs" />
         <Compile Include="Interface.cs">
             <SubType>Form</SubType>
         </Compile>
