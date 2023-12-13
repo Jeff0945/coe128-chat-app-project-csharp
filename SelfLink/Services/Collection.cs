@@ -19,7 +19,7 @@ namespace SelfLink.Services
         
         public User Client()
         {
-            return Users().FirstOrDefault(user => user.IsSender);
+            return Users().FirstOrDefault(user => user.IsClient);
         }
 
         public User Receiver()
@@ -31,9 +31,9 @@ namespace SelfLink.Services
         {
             base.Add(item);
 
-            if (!item.IsSender)
+            if (!item.IsClient)
             {
-                Gui.AppendUser(item.CreateComponent());
+                Gui.AppendUser(item.Component);
             }
         }
 
@@ -41,12 +41,12 @@ namespace SelfLink.Services
         {
             base.Add(item);
 
-            if (item.Sender().UserName == Receiver().UserName)
+            if (item.Sender().UserName == Receiver()?.UserName)
             {
                 Gui.AddMessage(item);
             }
 
-            if (item.Receiver().UserName == Receiver().UserName)
+            if (item.Receiver().UserName == Receiver()?.UserName)
             {
                 Gui.AddMessage(item);
             }
