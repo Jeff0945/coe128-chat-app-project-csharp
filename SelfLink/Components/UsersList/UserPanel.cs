@@ -124,7 +124,7 @@ namespace SelfLink.Components.UsersList
             
             GetRecipient().IsReceiver = true;
             BackColor = AppColors.Secondary;
-            Gui.DisplayMessages(GetRecipient());
+            Gui.ShowConversation(GetRecipient());
         }
 
         #endregion

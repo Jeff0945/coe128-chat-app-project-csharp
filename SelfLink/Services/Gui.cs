@@ -35,10 +35,11 @@ namespace SelfLink.Services
             gui.userName.Text = sender.UserName;
         }
 
-        public static void DisplayMessages(User recipient)
+        public static void ShowConversation(User selectedUser)
         {
             var messages = Instance.Database.Messages()
-                .Where(message => message.SenderUserName == recipient.UserName).ToList();
+                .Where(message => message.SenderUserName == selectedUser.UserName ||
+                                  message.ReceiverUserName == selectedUser.UserName).ToList();
             
             Instance.Gui.messagesPanel.Controls.Clear();
 
@@ -60,6 +61,8 @@ namespace SelfLink.Services
             {
                 messagePanel.Controls.Add(new SenderPanel(message));
             }
+            
+            messagePanel.ScrollControlIntoView(messagePanel.Controls[messagePanel.Controls.Count - 1]);
         }
     }
 }

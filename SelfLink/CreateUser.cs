@@ -16,7 +16,16 @@ namespace SelfLink
 
         private void Confirmed(object sender, EventArgs e)
         {
-            new User(userIdentifier.Text, userName.Text, true);
+            var userNameId = userIdentifier.Text;
+            var name = userName.Text;
+
+            if (userNameId.Length == 0 || name.Length == 0)
+            {
+                MessageBox.Show(@"Username and name field should not be empty.");
+                return;
+            }
+            
+            new User(userNameId, name, true);
             
             DialogResult = DialogResult.OK;
         }
