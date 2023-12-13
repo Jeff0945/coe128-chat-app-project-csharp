@@ -8,30 +8,29 @@ namespace SelfLink.Models
 {
     public class User : ICollection
     {
-        public string UserName { get; private set; }
-        public string Name { get; private set; }
-        public bool IsSender { get; }
+        public string UserName { get; }
+        public string Name { get; }
+        public bool IsClient { get; }
         public bool IsReceiver { get; set; }
-        public UserPanel Component { get; private set; }
+        public UserPanel Component { get; }
 
-        public User(string userName, string name, bool isSender = false)
+        public User(string userName, string name, bool isClient = false)
         {
-            if (!Validate(userName, isSender))
+            if (!Validate(userName, isClient))
             {
                 return;
             }
             
             UserName = userName;
             Name = name;
-            IsSender = isSender;
+            IsClient = isClient;
+
+            if (!IsClient)
+            {
+                Component = new UserPanel(this);
+            }
 
             Instance.Database.Add(this);
-        }
-
-        public UserPanel CreateComponent()
-        {
-            Component = new UserPanel(this);
-            return Component;
         }
 
         #region Private functions
@@ -40,7 +39,7 @@ namespace SelfLink.Models
         {
             var users = Instance.Database.Users().ToList();
             var exists = users.Any(user => user.UserName == userName && user != this);
-            var hasClient = users.Any(user => user.IsSender);
+            var hasClient = users.Any(user => user.IsClient);
 
             if (exists)
             {
