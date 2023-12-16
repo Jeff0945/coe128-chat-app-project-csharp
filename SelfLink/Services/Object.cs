@@ -83,7 +83,7 @@ namespace SelfLink.Services
                 return;
             }
 
-            if (Instance.IsConnectedToServer())
+            if (Instance.IsClient())
             {
                 return;
             }

@@ -32,8 +32,8 @@ namespace SelfLink
         {
             Collection database = Instance.Database;
             string message = messageInput.Text;
-            TcpClient receiver = Instance.IsConnectedToServer()
-                ? Instance.Server
+            TcpClient receiver = Instance.IsClient()
+                ? Instance.ServerConnection
                 : database.Receiver()?.Connection;
 
             if (receiver == null || database.Receiver() == null || message.Length == 0)
