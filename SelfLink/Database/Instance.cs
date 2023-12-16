@@ -6,12 +6,12 @@ namespace SelfLink.Database
     public static class Instance
     {
         internal static Interface Gui = null;
-        internal static TcpClient Server = null;
+        internal static TcpClient ServerConnection = null;
         internal static readonly Collection Database = new Collection();
 
-        public static bool IsConnectedToServer()
+        public static bool IsClient()
         {
-            return Server != null;
+            return ServerConnection != null;
         }
     }
 }

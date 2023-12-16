@@ -17,7 +17,7 @@ namespace SelfLink.Connection
                 var server = new TcpClient();
                 await server.ConnectAsync(IpAddress, Port);
 
-                Instance.Server = server;
+                Instance.ServerConnection = server;
                 
                 Communication.StartMessageListener(server);
                 SendClientInfo(server);
