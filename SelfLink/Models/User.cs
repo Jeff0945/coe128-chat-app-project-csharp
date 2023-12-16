@@ -18,7 +18,7 @@ namespace SelfLink.Models
         [JsonIgnore]
         public UserPanel Component { get; }
         [JsonIgnore]
-        public TcpClient Connection { get; }
+        public TcpClient Connection { get; set; }
 
         public User(UserJson json, TcpClient connection)
         {
