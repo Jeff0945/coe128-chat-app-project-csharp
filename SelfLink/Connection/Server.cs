@@ -1,7 +1,11 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using SelfLink.Database;
+using SelfLink.Models;
+using SelfLink.Services;
 
 namespace SelfLink.Connection
 {
@@ -56,11 +60,14 @@ namespace SelfLink.Connection
             }
         }
 
-        public static void SynchronizeToOtherUsers()
+        public static void SynchronizeToOtherUsers(User newUser)
         {
-            var database = Instance.Database;
+            Collection database = Instance.Database;
+            IEnumerable<User> connectedUsers = database.ConnectedUsers()
+                .Where(item => item.UserName != newUser.UserName)
+                .ToList();
             
-            foreach (var connected in Instance.Database.ConnectedUsers())
+            foreach (User connected in connectedUsers)
             {
                 foreach (var user in database.Users())
                 {
