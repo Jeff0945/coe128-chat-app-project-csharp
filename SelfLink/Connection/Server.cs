@@ -29,6 +29,8 @@ namespace SelfLink.Connection
                 IsBackground = true
             };
             connectionListener.Start(server);
+
+            Instance.Gui.Text += @" (Server)";
         }
 
         private static void ListenForConnections(object obj)

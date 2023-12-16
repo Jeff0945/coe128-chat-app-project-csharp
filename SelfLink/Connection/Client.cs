@@ -21,6 +21,8 @@ namespace SelfLink.Connection
                 
                 Communication.StartMessageListener(server);
                 SendClientInfo(server);
+
+                Instance.Gui.Text += @" (Client)";
                 
                 return true;
             }
