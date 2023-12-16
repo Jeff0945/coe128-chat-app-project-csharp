@@ -56,6 +56,7 @@ namespace SelfLink.Services
         private static void IfUser(string json, TcpClient connection)
         {
             JObject jsonObj = JObject.Parse(json);
+            connection = Instance.IsClient() ? null : connection;
 
             if (!Validation.IsUserData(jsonObj))
             {
@@ -66,6 +67,10 @@ namespace SelfLink.Services
 
             if (Validation.UserExists(userJson))
             {
+                User user = Instance.Database.Users()
+                    .FirstOrDefault(item => item.UserName == userJson.UserName);
+                user.Connection = connection;
+                
                 return;
             }
 
