@@ -69,9 +69,9 @@ namespace SelfLink.Services
                 return;
             }
 
-            new User(userJson, connection);
+            var newUser = new User(userJson, connection);
             
-            Server.SynchronizeToOtherUsers();
+            Server.SynchronizeToOtherUsers(newUser);
         }
 
         private static void StoreAndPassMessage(MessageJson messageJson)
