@@ -1,8 +1,9 @@
-﻿using System.Linq;
-using System.Windows.Forms;
+﻿using System.Net.Sockets;
+using Newtonsoft.Json;
 using SelfLink.Components.UsersList;
 using SelfLink.Database;
 using SelfLink.Interfaces;
+using SelfLink.Services;
 
 namespace SelfLink.Models
 {
@@ -10,13 +11,33 @@ namespace SelfLink.Models
     {
         public string UserName { get; }
         public string Name { get; }
+        [JsonIgnore]
         public bool IsClient { get; }
+        [JsonIgnore]
         public bool IsReceiver { get; set; }
+        [JsonIgnore]
         public UserPanel Component { get; }
+        [JsonIgnore]
+        public TcpClient Connection { get; }
+
+        public User(UserJson json, TcpClient connection)
+        {
+            if (!Validation.ValidateUserInfo(this, json.UserName))
+            {
+                return;
+            }
+            
+            UserName = json.UserName;
+            Name = json.Name;
+            Connection = connection;
+            Component = new UserPanel(this);
+
+            Instance.Database.Add(this);
+        }
 
         public User(string userName, string name, bool isClient = false)
         {
-            if (!Validate(userName, isClient))
+            if (!Validation.ValidateUserInfo(this, userName, isClient))
             {
                 return;
             }
@@ -32,30 +53,5 @@ namespace SelfLink.Models
 
             Instance.Database.Add(this);
         }
-
-        #region Private functions
-
-        private bool Validate(string userName, bool isSender = false)
-        {
-            var users = Instance.Database.Users().ToList();
-            var exists = users.Any(user => user.UserName == userName && user != this);
-            var hasClient = users.Any(user => user.IsClient);
-
-            if (exists)
-            {
-                MessageBox.Show($@"User name ""{userName}"" already exists.");
-                return false;
-            }
-
-            if (isSender && hasClient)
-            {
-                MessageBox.Show(@"A sender already exists");
-                return false;
-            }
-            
-            return true;
-        }
-
-        #endregion
     }
 }
