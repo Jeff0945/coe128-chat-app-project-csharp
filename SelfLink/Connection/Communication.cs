@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -19,7 +20,7 @@ namespace SelfLink.Connection
             }
             catch (Exception e)
             {
-                // ignore
+                Debug.WriteLine(e);
             }
         }
         
@@ -52,9 +53,9 @@ namespace SelfLink.Connection
                 {
                     HandleStreamRead(connection, asyncResult, callback);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    // ignore
+                    Debug.WriteLine(e);
                 }
             };
 
