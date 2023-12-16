@@ -42,7 +42,7 @@ namespace SelfLink
             }
 
             var messageObj = new Message(database.Client().UserName, database.Receiver().UserName, message);
-            Communication.SendData(messageObj, receiver);
+            Communication.TrySendData(messageObj, receiver);
             
             messageInput.Text = "";
         }

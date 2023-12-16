@@ -10,6 +10,18 @@ namespace SelfLink.Connection
     {
         private const int BufferSize = 1024;
         private static readonly byte[] Buffer = new byte[BufferSize];
+
+        public static void TrySendData(object data, TcpClient connection)
+        {
+            try
+            {
+                SendData(data, connection);
+            }
+            catch (Exception e)
+            {
+                // ignore
+            }
+        }
         
         public static void SendData(object data, TcpClient connection)
         {
