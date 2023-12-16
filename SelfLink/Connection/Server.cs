@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Windows.Forms;
 using SelfLink.Database;
 using SelfLink.Models;
 using SelfLink.Services;
@@ -34,7 +35,22 @@ namespace SelfLink.Connection
             };
             connectionListener.Start(server);
 
-            Instance.Gui.Text += @" (Server)";
+            SetWindowTitleStatus();
+        }
+
+        private static void SetWindowTitleStatus()
+        {
+            if (Instance.Gui.InvokeRequired)
+            {
+                Instance.Gui.Invoke((MethodInvoker)delegate
+                {
+                    Instance.Gui.Text += @" (Server)";
+                });
+            }
+            else
+            {
+                Instance.Gui.Text += @" (Server)";
+            }
         }
 
         private static void ListenForConnections(object obj)
@@ -56,7 +72,7 @@ namespace SelfLink.Connection
         {
             foreach (var user in Instance.Database.Users())
             {
-                Communication.SendData(user, client);
+                Communication.TrySendData(user, client);
             }
         }
 
@@ -71,7 +87,7 @@ namespace SelfLink.Connection
             {
                 foreach (var user in database.Users())
                 {
-                    Communication.SendData(user, connected.Connection);
+                    Communication.TrySendData(user, connected.Connection);
                 }
             }
         }
@@ -80,7 +96,7 @@ namespace SelfLink.Connection
         {
             foreach (var message in Instance.Database.Messages())
             {
-                Communication.SendData(message, client);
+                Communication.TrySendData(message, client);
             }
         }
     }

@@ -106,7 +106,7 @@ namespace SelfLink.Services
                 return;
             }
             
-            Communication.SendData(message, user.Connection);
+            Communication.TrySendData(message, user.Connection);
         }
     }
 }
