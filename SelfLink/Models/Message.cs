@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using System.Windows.Forms;
 using SelfLink.Database;
 using SelfLink.Interfaces;
+using SelfLink.Services;
 
 namespace SelfLink.Models
 {
@@ -11,9 +11,23 @@ namespace SelfLink.Models
         public string ReceiverUserName { get; }
         public string Text { get; private set; }
 
+        public Message(MessageJson json)
+        {
+            if (!Validation.ValidateMessageInfo(json.ReceiverUserName))
+            {
+                return;
+            }
+
+            SenderUserName = json.SenderUserName;
+            ReceiverUserName = json.ReceiverUserName;
+            Text = json.Text;
+
+            Instance.Database.Add(this);
+        }
+
         public Message(string senderUserName, string receiverUserName, string message)
         {
-            if (!Validate(receiverUserName))
+            if (!Validation.ValidateMessageInfo(receiverUserName))
             {
                 return;
             }
@@ -37,23 +51,5 @@ namespace SelfLink.Models
                 .Users()
                 .First(user => user.UserName == ReceiverUserName);
         }
-
-        #region Private functions
-
-        private bool Validate(string userName)
-        {
-            bool exists = Instance.Database
-                .Users()
-                .Any(user => user.UserName == userName);
-
-            if (!exists)
-            {
-                MessageBox.Show($@"User ""{userName}"" does not exist.");
-            }
-
-            return exists;
-        }
-
-        #endregion
     }
 }

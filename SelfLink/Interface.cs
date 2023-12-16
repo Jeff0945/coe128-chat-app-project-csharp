@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Windows.Forms;
+using SelfLink.Connection;
 using SelfLink.Database;
 using SelfLink.Services;
 using Message = SelfLink.Models.Message;
@@ -13,24 +15,35 @@ namespace SelfLink
             InitializeComponent();
             Instance.Gui = this;
             
-            Gui.InitializeUser();
-            Gui.DisplayUserInfo();
+            Gui.ShowLogin();
+            Gui.PopulateUserInfo();
+            
+            StartEventListeners();
+            
+            Server.ConnectOrStart();
+        }
 
+        private void StartEventListeners()
+        {
             sendButton.Click += HandleSendMessage;
         }
 
         private void HandleSendMessage(object sender, EventArgs e)
         {
-            var database = Instance.Database;
-            var receiver = database.Receiver();
-            var message = messageInput.Text;
+            Collection database = Instance.Database;
+            string message = messageInput.Text;
+            TcpClient receiver = Instance.IsConnectedToServer()
+                ? Instance.Server
+                : database.Receiver()?.Connection;
 
-            if (receiver == null || message.Length == 0)
+            if (receiver == null || database.Receiver() == null || message.Length == 0)
             {
                 return;
             }
 
-            new Message(database.Client().UserName, database.Receiver().UserName, message);
+            var messageObj = new Message(database.Client().UserName, database.Receiver().UserName, message);
+            Communication.SendData(messageObj, receiver);
+            
             messageInput.Text = "";
         }
     }

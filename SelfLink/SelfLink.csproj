@@ -36,6 +36,9 @@
         <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
           <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
         </Reference>
+        <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+          <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+        </Reference>
         <Reference Include="PresentationCore" />
         <Reference Include="PresentationFramework" />
         <Reference Include="System"/>
@@ -101,6 +104,9 @@
         <Compile Include="Components\SenderMessage\SenderPicture.Designer.cs">
           <DependentUpon>SenderPicture.cs</DependentUpon>
         </Compile>
+        <Compile Include="Connection\Client.cs" />
+        <Compile Include="Connection\Communication.cs" />
+        <Compile Include="Connection\Server.cs" />
         <Compile Include="Constants\AppColors.cs" />
         <Compile Include="Constants\SizeConstants.cs" />
         <Compile Include="Database\Instance.cs" />
@@ -130,7 +136,9 @@
         </Compile>
         <Compile Include="Interfaces\ICollection.cs" />
         <Compile Include="Models\Message.cs" />
+        <Compile Include="Models\MessageJson.cs" />
         <Compile Include="Models\User.cs" />
+        <Compile Include="Models\UserJson.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Services\Collection.cs" />
@@ -141,6 +149,8 @@
         <Compile Include="CreateUser.Designer.cs">
           <DependentUpon>CreateUser.cs</DependentUpon>
         </Compile>
+        <Compile Include="Services\Object.cs" />
+        <Compile Include="Services\Validation.cs" />
         <EmbeddedResource Include="CreateUser.resx">
           <DependentUpon>CreateUser.cs</DependentUpon>
         </EmbeddedResource>

@@ -12,6 +12,12 @@ namespace SelfLink.Services
             return this.OfType<User>();
         }
 
+        public IEnumerable<User> ConnectedUsers()
+        {
+            return this.OfType<User>()
+                .Where(user => user.Connection != null);
+        }
+
         public IEnumerable<Message> Messages()
         {
             return this.OfType<Message>();
@@ -43,12 +49,12 @@ namespace SelfLink.Services
 
             if (item.Sender().UserName == Receiver()?.UserName)
             {
-                Gui.AddMessage(item);
+                Gui.ShowMessage(item);
             }
 
             if (item.Receiver().UserName == Receiver()?.UserName)
             {
-                Gui.AddMessage(item);
+                Gui.ShowMessage(item);
             }
         }
     }
