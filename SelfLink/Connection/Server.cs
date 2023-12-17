@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
+using SelfLink.Constants;
 using SelfLink.Database;
 using SelfLink.Models;
 using SelfLink.Services;
@@ -12,8 +13,6 @@ namespace SelfLink.Connection
 {
     public static class Server
     {
-        private const int Port = 57388;
-
         public static async void ConnectOrStart()
         {
             if (!await Client.TryConnect())
@@ -24,7 +23,7 @@ namespace SelfLink.Connection
 
         private static void ServerStart()
         {
-            var localEndPoint = new IPEndPoint(IPAddress.Any, Port);
+            var localEndPoint = new IPEndPoint(IPAddress.Any, SocketConfig.Port);
 
             var server = new TcpListener(localEndPoint);
             server.Start();
