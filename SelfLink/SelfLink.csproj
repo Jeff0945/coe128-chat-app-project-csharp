@@ -108,6 +108,7 @@
         <Compile Include="Connection\Communication.cs" />
         <Compile Include="Connection\Server.cs" />
         <Compile Include="Constants\AppColors.cs" />
+        <Compile Include="Constants\SocketConfig.cs" />
         <Compile Include="Constants\SizeConstants.cs" />
         <Compile Include="Database\Instance.cs" />
         <Compile Include="Interface.cs">

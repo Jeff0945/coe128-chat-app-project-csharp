@@ -3,21 +3,19 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SelfLink.Constants;
 using SelfLink.Database;
 
 namespace SelfLink.Connection
 {
     public static class Client
     {
-        private const string IpAddress = "127.0.0.1";
-        private const int Port = 57388;
-        
         public static async Task<bool> TryConnect()
         {
             try
             {
                 var server = new TcpClient();
-                await server.ConnectAsync(IpAddress, Port);
+                await server.ConnectAsync(SocketConfig.IpAddress, SocketConfig.Port);
 
                 Instance.ServerConnection = server;
                 
